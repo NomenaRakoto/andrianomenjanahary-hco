@@ -1,0 +1,33 @@
+body{
+	background: rgb(184,3,3);
+
+}
+
+#page_title{
+	text-align: center;
+	color : white;
+	font-weight: bold;
+	font-size: 2.5em;
+}
+
+.container{
+	border: 1px solid gray;
+	/*width: 600px;*/
+	padding: 20px;
+	padding-top: 10px;
+	border-radius: 5px;
+	background-color: rgb(230,230,230);
+}
+.edit_fiche{
+	margin:9%;
+}
+.btn{
+	font-size: 1em;
+	padding: 6px;
+}
+.modal-header
+{
+	background: rgb(184,3,3);
+	font-size: 1.5em;
+	color:white;
+}
