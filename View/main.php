@@ -105,6 +105,11 @@
 		$("#delete_categorie").on("click",function(){
 
 			var node = $('#arbre_categorie').tree('getSelectedNode');
+			if(!node)
+			{
+				alert("Sélectionner une catégorie 'il vous plait");
+				return;
+			}
 			delete_categorie(node);
 		});
 		function delete_categorie(node)
