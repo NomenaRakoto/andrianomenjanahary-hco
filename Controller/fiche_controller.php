@@ -20,7 +20,7 @@ class Fiche_controller extends Controller {
 			$fiche = $fiche->toArray();
 			$fiches[] = $fiche;
 		}
-		json_encode($fiches);
+		echo json_encode($fiches);
 
 	}
 
