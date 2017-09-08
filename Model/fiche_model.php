@@ -2,6 +2,7 @@
 /**
  * fiche modele
  * Assure la recuperation des données depuis la base de données pour les fiches
+ * Casse héritant du class abstraite Model
  */
 require_once "model.php";
 require_once __DIR__."/../fiche.php";

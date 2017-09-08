@@ -76,7 +76,6 @@
                 return;
             }
             donnees = {"id":nodeModif.id,"libelle":libelle,"id_pere":id_pere};
-            modalmodif.close();
             $.ajax({
                 url: 'index.php?action=modifiercategorie',
                 type: 'POST',
@@ -84,10 +83,12 @@
                 data:{"donnees" : donnees},
 
                 success : function(result, status){
+                    modalmodif.close();
                     location.reload();
 
                },
                error : function(result, status, err){
+                    modalmodif.close();
                     location.reload();
                }
             });

@@ -69,7 +69,6 @@
                 return;
             }
             donnees = {"libelle":libelle,"description":description,"categories" : categories};
-            modalAjoutFiche.close();
             $.ajax({
                 url: 'index.php?action=ajouterFiche',
                 type: 'POST',
@@ -77,10 +76,12 @@
                 data:{"donnees" : donnees},
 
                 success : function(result, status){
+                    modalAjoutFiche.close();
                     location.reload();
 
                },
                error : function(result, status, err){
+                   modalAjoutFiche.close();
                    location.reload();
                }
             });

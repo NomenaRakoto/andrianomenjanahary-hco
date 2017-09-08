@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Obtenir les configurations depuis un fichier 
+ */
  class Config{
 	private $settings = [];
 	private static $_instance;

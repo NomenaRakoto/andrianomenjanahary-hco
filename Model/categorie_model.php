@@ -6,6 +6,10 @@
 require_once "model.php";
 require_once __DIR__."/../categorie.php";
 class Categorie_model extends Model{
+	/**
+	 * Obtenir les catégories 
+	 * @return [type] [description]
+	 */
 	public function getAll(){
 		$donnees = array();
 		$requete = "SELECT 
@@ -19,7 +23,11 @@ class Categorie_model extends Model{
 		}
 		return $donnees;
 	}
-
+	/**
+	 * Supprimer une catégorie
+	 * @param  [type] $id_categorie [description]
+	 * @return [type]               [description]
+	 */
 	public function supprimerCategorie($id_categorie)
 	{
 		$requete = "DELETE FROM categories
@@ -32,6 +40,11 @@ class Categorie_model extends Model{
 		$this->executerRequete($requete,array($id_categorie));
 		return true;
 	}
+	/**
+	 * Ajouter une catégorie
+	 * @param  Categorie $categorie objet
+	 * @return [type]               [description]
+	 */
 	public function ajouterCategorie(Categorie $categorie)
 	{
 
@@ -42,6 +55,11 @@ class Categorie_model extends Model{
 				 ";
 		$this->executerRequete($requete,array($categorie->getLibelle(),$categorie->getId_pere()));
 	}
+	/**
+	 * Modifier une catégorie
+	 * @param  Categorie $categorie [description]
+	 * @return [type]               [description]
+	 */
 	public function modifierCategorie(Categorie $categorie)
 	{
 		$requete = "UPDATE categories
@@ -52,6 +70,11 @@ class Categorie_model extends Model{
 		$this->executerRequete($requete,array($categorie->getLibelle(),$categorie->getId_pere(),$categorie->getId()));
 		return true;
 	}
+	/**
+	 * Obtenir une catégorie par id_catégorie
+	 * @param  [type] $id_categorie [description]
+	 * @return [type]               [description]
+	 */
 	public function getCategorie($id_categorie)
 	{
 		$requete = "SELECT 

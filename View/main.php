@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Gestion d'annuaire | HCO</title>
+	<title>Gestion d'annuaire</title>
 	<link rel="stylesheet" type="text/css" href="View/assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="View/assets/style.css">
 	<link rel="stylesheet" type="text/css" href="View/assets/jqTree/css/jqtree.css">
@@ -27,7 +27,7 @@
 					
 				</div>
 			</div>
-			<div class="col-sm-8" style="background-color: white;">
+			<div class="col-sm-8 container_fiche" style="background-color: white;">
 				<div class="subtitle"><h3>Fiches</h3></div>
 				<div>
 					<button type="button" id="add_fiche" class="btn btn-primary btn-lg" >
@@ -35,6 +35,7 @@
 					Ajouter
 					</button>
 				</div>
+				<div id="table_mere">
 				 <table class="table table-hover">
 				    <thead>
 				      <tr>
@@ -56,6 +57,7 @@
 				    	<?php } ?>
 				    </tbody>
 				  </table>
+				  </div>
 		</div>
 		</div>
 		<div class="col-sm-1"></div>

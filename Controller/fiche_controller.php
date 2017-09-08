@@ -6,6 +6,11 @@ class Fiche_controller extends Controller {
 	{
 		$this->fiche_model = $this->loadModel("fiche");
 	}
+
+	/**
+	 * getAll fiches
+	 * @return Array Fiche 
+	 */
 	public function getAll()
 	{
 		$donnees = $this->fiche_model->getAll();
@@ -18,6 +23,11 @@ class Fiche_controller extends Controller {
 		json_encode($fiches);
 
 	}
+
+	/**
+	 * Ajouter une fiche
+	 * @return [type] [description]
+	 */
 	public function ajouterFiche()
 	{
 		$donnees = $_POST['donnees'];
@@ -28,11 +38,19 @@ class Fiche_controller extends Controller {
 		$fiche = new Fiche(null,$donnees['libelle'],$donnees["description"],$categories);
 		$this->fiche_model->ajouterFiche($fiche);
 	}
+	/**
+	 * Supprimer une fiche
+	 * @return [type] [description]
+	 */
 	public function supprimerFiche()
 	{
 		$id_fiche = $_POST["id_fiche"];
 		$this->fiche_model->supprimerFiche(intval($id_fiche));
 	}
+	/**
+	 * Modifier une fiche
+	 * @return [type] [description]
+	 */
 	public function modifierFiche()
 	{
 		$donnees = $_POST['donnees'];
@@ -43,6 +61,10 @@ class Fiche_controller extends Controller {
 		$fiche = new Fiche(intval($donnees['id_fiche']),$donnees['libelle'],$donnees['description'],$categories);
 		$this->fiche_model->modifierFiche($fiche);
 	}
+	/**
+	 * Get fiche catégorie
+	 * @return [type] [description]
+	 */
 	public function getFicheCategories(){
 		$id_fiche = $_POST['id_fiche'];
 		$categories = $this->fiche_model->getFicheCategories($id_fiche);

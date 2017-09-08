@@ -1,4 +1,7 @@
 <?php 
+/**
+ * Class abstraite
+ */
 require_once "connexion.php";
 abstract class Model {
 	protected $connexion;
@@ -8,7 +11,12 @@ abstract class Model {
 		$this->connexion = Connexion::getInstance()->getConnexion();
 
 	}
-
+	/**
+	 * Exécuter une requete
+	 * @param  [type] $requete [description]
+	 * @param  array $params  les paramètre de la requete
+	 * @return [type]          [description]
+	 */
 	protected function executerRequete($requete , $params = null){
 
 		if($params == null)

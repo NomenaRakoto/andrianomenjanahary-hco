@@ -1,4 +1,7 @@
 <?php 
+/**
+ * Fiche Class
+ */
 class Fiche {
 	private $id;
 	private $libelle;

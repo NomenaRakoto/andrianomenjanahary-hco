@@ -1,4 +1,7 @@
 <?php 
+/**
+ * Class Categorie
+ */
 class Categorie
 {
 	private $id;

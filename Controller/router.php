@@ -10,7 +10,10 @@ class Router {
 		$this->categorie_control = new Categorie_controller();
 		$this->fiche_control = new Fiche_controller();
 	}
-
+	/**
+	 * Router requete
+	 * @return [type] [description]
+	 */
 	public function routeRequete(){
 		if(!isset($_GET['action']))
 		{

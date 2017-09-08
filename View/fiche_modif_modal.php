@@ -81,7 +81,6 @@
                 return;
             }
             donnees = {"id_fiche":id,"libelle":libelle,"description":description,"categories" : categories};
-            modalAjoutFiche.close();
             $.ajax({
                 url: 'index.php?action=modifierFiche',
                 type: 'POST',
@@ -89,10 +88,12 @@
                 data:{"donnees" : donnees},
 
                 success : function(result, status){
+                    modalModifFiche.close();
                     location.reload();
 
                },
                error : function(result, status, err){
+                   modalModifFiche.close();
                    location.reload();
                }
             });

@@ -7,6 +7,10 @@ class Categorie_controller extends Controller {
 		$this->categorie_model = $this->loadModel("categorie");
 		$this->fiche_model = $this->loadModel("fiche");
 	}
+	/**
+	 * Load acceuil
+	 * @return [type] [description]
+	 */
 	public function acceuil()
 	{
 		$donnees = $this->fiche_model->getAll();
@@ -23,17 +27,18 @@ class Categorie_controller extends Controller {
 		}
 		$this->loadVue("main",array("fiches"=>$fiches,"categories"=>$categories));
 	}
+	/**
+	 * Get all categories
+	 * @return [type] [description]
+	 */
 	public function getAll()
 	{
 		$data = $this->categorie_model->getAll();
-		// Build array of item references:
 		$itemsByReference = array();
 		foreach($data as $key => &$item) {
 		   $itemsByReference[$item['id']] = &$item;
-		   // Children array:
 		   $itemsByReference[$item['id']]['children'] = array();
 		}
-		// Set items as children of the relevant parent item.
 		foreach($data as $key => &$item)
 		{
 		   if($item['id_pere'] && isset($itemsByReference[$item['id_pere']]))
@@ -53,38 +58,36 @@ class Categorie_controller extends Controller {
 		}
 		unset($data);
 		unset($itemsByReference);
-		echo json_encode($this->utf8ize($result));
+		echo json_encode($result);
 	}
+	/**
+	 * Ajouter une catégorie
+	 * @return [type] [description]
+	 */
 	public function ajouterCategorie(){
 		$donnees = $_POST['donnees'];
 		$categorie = new Categorie(null,$donnees['libelle'],intval($donnees['id_pere']));
 		$this->categorie_model->ajouterCategorie($categorie);
 		echo "true";
 	}
+	/**
+	 * Ajouter une catégorie
+	 * @return [type] [description]
+	 */
 	public function supprimerCategorie()
 	{
 		$id_categorie = $_POST['id_categorie'];
 		$id_categorie = intval($id_categorie);
 		$this->categorie_model->supprimerCategorie($id_categorie);
 	}
+	/**
+	 * Modifier une catégorie
+	 * @return [type] [description]
+	 */
 	public function modifierCategorie(){
 		$donnees = $_POST['donnees'];
 		$categorie = new Categorie(intval($donnees['id']),$donnees['libelle'],intval($donnees['id_pere']));
 		$this->categorie_model->modifierCategorie($categorie);
-	}
-	private function utf8ize($d) {
-		    if (is_array($d))
-		        foreach ($d as $k => $v) 
-		            $d[$k] = $this->utf8ize($v);
-
-		     else if(is_object($d))
-		        foreach ($d as $k => $v) 
-		            $d->$k = $this->utf8ize($v);
-
-		     else 
-		        return utf8_encode($d);
-
-		    return $d;
 	}
 }
 ?>

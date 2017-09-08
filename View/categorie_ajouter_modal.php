@@ -80,7 +80,6 @@
                     return;
                 }
                 donnees = {"libelle":libelle,"id_pere":id_pere};
-                modal.close();
                 $.ajax({
                     url: 'index.php?action=ajoutercategorie',
                     type: 'POST',
@@ -88,10 +87,12 @@
                     data:{"donnees" : donnees},
 
                     success : function(result, status){
+                         modal.close();
                         location.reload();
                    },
 
                    error : function(result, status, err){
+                         modal.close();
                         location.reload();
                    }
                 });
