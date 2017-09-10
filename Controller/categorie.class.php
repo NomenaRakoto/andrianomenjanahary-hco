@@ -12,10 +12,6 @@ class Categorie
 		$this->libelle = $libelle;
 		$this->id_pere = $id_pere;
 	}
-	public function toArray()
-	{
-		return array("id"=>$this->id,"libelle"=>$this->libelle,"id_pere"=>$this->id_pere);
-	}
 	public function setId($id){
 		$this->id = $id;
 	}

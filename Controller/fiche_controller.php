@@ -8,23 +8,6 @@ class Fiche_controller extends Controller {
 	}
 
 	/**
-	 * getAll fiches
-	 * @return Array Fiche 
-	 */
-	public function getAll()
-	{
-		$donnees = $this->fiche_model->getAll();
-		$fiches = array();
-		foreach ($donnees as $ligne) {
-			$fiche = new Fiche($ligne['id_fiche'],$ligne['libelle_fiche'],$ligne["description"], $ligne['categories']);
-			$fiche = $fiche->toArray();
-			$fiches[] = $fiche;
-		}
-		echo json_encode($fiches);
-
-	}
-
-	/**
 	 * Ajouter une fiche
 	 * @return [type] [description]
 	 */
@@ -73,6 +56,22 @@ class Fiche_controller extends Controller {
 			$data[] = $categorie['id_categorie'];
 		}
 		echo json_encode($data);
+	}
+	/**
+	 * getAll fiches
+	 * @return Array Fiche 
+	 */
+	public function getAll()
+	{
+		$donnees = $this->fiche_model->getAll();
+		$fiches = array();
+		foreach ($donnees as $ligne) {
+			$fiche = new Fiche($ligne['id_fiche'],$ligne['libelle_fiche'],$ligne["description"], $ligne['categories']);
+			$fiche = $fiche->toArray();
+			$fiches[] = $fiche;
+		}
+		echo json_encode($fiches);
+
 	}
 
 }
