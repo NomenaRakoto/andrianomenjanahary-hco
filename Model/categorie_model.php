@@ -4,7 +4,7 @@
  * Assure la récupération des données depuis la bdd pour les catégories
  */
 require_once "model.php";
-require_once __DIR__."/../categorie.php";
+require_once __DIR__."/../Controller/categorie.class.php";
 class Categorie_model extends Model{
 	/**
 	 * Obtenir les catégories 

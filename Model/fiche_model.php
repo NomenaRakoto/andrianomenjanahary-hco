@@ -5,7 +5,7 @@
  * Casse héritant du class abstraite Model
  */
 require_once "model.php";
-require_once __DIR__."/../fiche.php";
+require_once __DIR__."/../Controller/fiche.class.php";
 class Fiche_model extends Model {
 
 	/**
